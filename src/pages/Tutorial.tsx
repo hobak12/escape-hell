@@ -1,10 +1,11 @@
-import Comment from "../components/Comment/Comment";
+import CommentInputs from "../components/Comment/CommentInputs";
+import CommentList from "../components/Comment/CommentList";
 
 const Tutorial = () => {
   return (
     <>
-      "tutorial"
-      <Comment />
+      <CommentInputs />
+      <CommentList />
     </>
   );
 };

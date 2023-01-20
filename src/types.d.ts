@@ -3,13 +3,18 @@ declare type TechIconImg = {
   alt: string;
 };
 
-declare interface CommentType extends CreateCommentType {
+declare interface CommentType {
   id: string;
   name: string;
   content: string;
   created_at: Date;
   level: number;
   password: string;
+}
+
+declare interface UpdateCommentType {
+  name?: string;
+  content?: string;
 }
 
 declare interface VideoType {
