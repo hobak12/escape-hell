@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import supabase from "./utils/supabase";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./router/Router";
 
 /**
  *
@@ -17,7 +17,11 @@ function App() {
   // useEffect(() => {
   //   getData();
   // }, []);
-  return <div>해윙~</div>;
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
 }
 
 export default App;
