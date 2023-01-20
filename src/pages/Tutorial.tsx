@@ -1,5 +1,12 @@
+import Comment from "../components/Comment/Comment";
+
 const Tutorial = () => {
-  return <>"tutorial"</>;
+  return (
+    <>
+      "tutorial"
+      <Comment />
+    </>
+  );
 };
 
 export default Tutorial;
