@@ -1,14 +1,14 @@
-declare interface CommentType {
-  id: number;
+declare interface CommentType extends CreateCommentType {
+  id: string;
   name: string;
   content: string;
-  createdAt: number;
+  created_at: Date;
   level: number;
   password: string;
 }
 
 declare interface VideoType {
-  id: number;
+  id: string;
   level: number;
   subject: string;
   url: string;
