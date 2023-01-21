@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 import { useLocation } from "react-router-dom";
 import { useQueryClient } from "react-query";
-import useInput, { InputType } from "../../hooks/common/useInput";
+import useInput from "../../hooks/common/useInput";
 import useCreateComment from "../../hooks/query/useCreateComment";
 import useGetCommentList from "../../hooks/query/useGetCommentList";
 import { KeyboardEvent } from "react";
@@ -12,7 +12,7 @@ const CommentInputs = () => {
   const { pathname } = useLocation();
   const level = Number(pathname.split("/")[1]);
 
-  const [name, changeName, resetName]: InputType = useInput("");
+  const [name, changeName, resetName] = useInput("");
   const [content, changeContent, resetContent] = useInput("");
   const [password, changePassword, resetPassword] = useInput("");
   const { mutate: createComment } = useCreateComment({

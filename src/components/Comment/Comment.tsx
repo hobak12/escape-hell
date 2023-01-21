@@ -19,14 +19,43 @@ const Comment = ({ comment }: { comment: CommentType }) => {
   const [editContent, changeEditContent] = useInput(content);
   const [editPassword, changeEditPassword] = useInput();
 
+  const queryKey = useGetCommentList.getKey(level);
   const { mutate: updateComment } = useUpdateComment({
-    onSuccess: async () => {
-      queryClient.invalidateQueries(useGetCommentList.getKey(level));
+    onMutate: async () => {
+      await queryClient.cancelQueries({ queryKey });
+      const previousCommentList = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, (old: any) => {
+        const newComment = { ...comment, name: editName, content: editContent };
+        const newCommentList = [...old.data].map((c) => {
+          if (c.id === comment.id) return newComment;
+          return c;
+        });
+        return { ...old, data: newCommentList };
+      });
+      return { previousCommentList };
+    },
+    onError: (_err: any, _new: any, context: any) => {
+      queryClient.setQueryData(queryKey, context.previousCommentList);
+    },
+    onSettled: async () => {
+      queryClient.invalidateQueries({ queryKey });
     },
   });
   const { mutate: deleteComment } = useDeleteComment({
-    onSuccess: async () => {
-      queryClient.invalidateQueries(useGetCommentList.getKey(level));
+    onMutate: async () => {
+      await queryClient.cancelQueries({ queryKey });
+      const previousCommentList = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, (old: any) => {
+        const newCommentList = [...old.data].filter((c) => c.id !== comment.id);
+        return { ...old, data: newCommentList };
+      });
+      return { previousCommentList };
+    },
+    onError: (_err: any, _new: any, context: any) => {
+      queryClient.setQueryData(queryKey, context.previousCommentList);
+    },
+    onSettled: async () => {
+      queryClient.invalidateQueries({ queryKey });
     },
   });
 
@@ -48,6 +77,7 @@ const Comment = ({ comment }: { comment: CommentType }) => {
 
   const onKeyUp = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter") {
+      onUpdate();
     }
   };
 
