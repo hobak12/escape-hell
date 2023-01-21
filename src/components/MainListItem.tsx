@@ -17,7 +17,7 @@ const MainListItem = ({ idx, title, techStackIcons }: MainListItemProps) => {
             <p className="text-white text-2xl">지옥문 {level}단계</p>
             <h3 className="text-white font-bold text-5xl">{title}</h3>
           </div>
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row gap-8">
             {techStackIcons.map(({ src, alt }, idx) => (
               <TechIcon key={idx} src={src} alt={alt} />
             ))}
