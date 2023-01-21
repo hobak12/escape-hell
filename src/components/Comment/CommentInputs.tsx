@@ -15,9 +15,22 @@ const CommentInputs = () => {
   const [name, changeName, resetName] = useInput("");
   const [content, changeContent, resetContent] = useInput("");
   const [password, changePassword, resetPassword] = useInput("");
+  const queryKey = useGetCommentList.getKey(level);
   const { mutate: createComment } = useCreateComment({
-    onSuccess: async () => {
-      await queryClient.invalidateQueries(useGetCommentList.getKey(level));
+    onMutate: async (newComment: CommentType) => {
+      await queryClient.cancelQueries({ queryKey });
+      const previousCommentList = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, (old: any) => {
+        const newCommentList = [...old.data, newComment];
+        return { ...old, data: newCommentList };
+      });
+      return { previousCommentList };
+    },
+    onError: (_err: any, _new: any, context: any) => {
+      queryClient.setQueryData(queryKey, context.previousCommentList);
+    },
+    onSettled: async () => {
+      queryClient.invalidateQueries({ queryKey });
     },
   });
 

@@ -21,11 +21,10 @@ const Comment = ({ comment }: { comment: CommentType }) => {
 
   const queryKey = useGetCommentList.getKey(level);
   const { mutate: updateComment } = useUpdateComment({
-    onMutate: async () => {
+    onMutate: async (newComment: CommentType) => {
       await queryClient.cancelQueries({ queryKey });
       const previousCommentList = queryClient.getQueryData(queryKey);
       queryClient.setQueryData(queryKey, (old: any) => {
-        const newComment = { ...comment, name: editName, content: editContent };
         const newCommentList = [...old.data].map((c) => {
           if (c.id === comment.id) return newComment;
           return c;
