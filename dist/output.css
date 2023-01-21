@@ -612,6 +612,18 @@ video {
   height: 9rem;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
 .w-32 {
   width: 8rem;
 }
