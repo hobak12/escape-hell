@@ -1,11 +1,14 @@
 import { MainList } from "../components";
+import tutorial from "../data/tutorialList.json";
 
 const Main = () => {
   return (
     <div className="bg-neutral-900">
-      {/* main scroll */}
-      <div className="h-screen">???</div>
-      <MainList />
+      <div className="h-screen">
+        {/* main scroll */}
+        ???
+      </div>
+      <MainList tutorial={tutorial} />
       <footer className="h-64"></footer>
     </div>
   );
