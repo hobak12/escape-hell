@@ -20,42 +20,34 @@ const Comment = ({ comment }: { comment: CommentType }) => {
   const [editPassword, changeEditPassword] = useInput();
 
   const queryKey = useGetCommentList.getKey(level);
+
+  const onMutate = async (getNewCommentList: Function) => {
+    await queryClient.cancelQueries({ queryKey });
+    const previousCommentList = queryClient.getQueryData(queryKey);
+    queryClient.setQueryData(queryKey, (old: any) => getNewCommentList(old));
+    return { previousCommentList };
+  };
+  const onError = (_err: any, _new: any, context: any) => {
+    queryClient.setQueryData(queryKey, context.previousCommentList);
+  };
+  const onSettled = async () => {
+    queryClient.invalidateQueries({ queryKey });
+  };
   const { mutate: updateComment } = useUpdateComment({
-    onMutate: async (newComment: CommentType) => {
-      await queryClient.cancelQueries({ queryKey });
-      const previousCommentList = queryClient.getQueryData(queryKey);
-      queryClient.setQueryData(queryKey, (old: any) => {
-        const newCommentList = [...old.data].map((c) => {
+    onMutate: (newComment: CommentType) =>
+      onMutate((old: any) =>
+        [...old.data].map((c) => {
           if (c.id === comment.id) return newComment;
           return c;
-        });
-        return { ...old, data: newCommentList };
-      });
-      return { previousCommentList };
-    },
-    onError: (_err: any, _new: any, context: any) => {
-      queryClient.setQueryData(queryKey, context.previousCommentList);
-    },
-    onSettled: async () => {
-      queryClient.invalidateQueries({ queryKey });
-    },
+        })
+      ),
+    onError,
+    onSettled,
   });
   const { mutate: deleteComment } = useDeleteComment({
-    onMutate: async () => {
-      await queryClient.cancelQueries({ queryKey });
-      const previousCommentList = queryClient.getQueryData(queryKey);
-      queryClient.setQueryData(queryKey, (old: any) => {
-        const newCommentList = [...old.data].filter((c) => c.id !== comment.id);
-        return { ...old, data: newCommentList };
-      });
-      return { previousCommentList };
-    },
-    onError: (_err: any, _new: any, context: any) => {
-      queryClient.setQueryData(queryKey, context.previousCommentList);
-    },
-    onSettled: async () => {
-      queryClient.invalidateQueries({ queryKey });
-    },
+    onMutate: () => onMutate((old: any) => [...old.data].filter((c) => c.id !== comment.id)),
+    onError,
+    onSettled,
   });
 
   const onUpdate = () => {
