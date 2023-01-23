@@ -1,39 +1,17 @@
 import { v4 as uuid } from "uuid";
 import { useLocation } from "react-router-dom";
-import { useQueryClient } from "react-query";
 import useInput from "../../hooks/common/useInput";
 import useCreateComment from "../../hooks/query/useCreateComment";
-import useGetCommentList from "../../hooks/query/useGetCommentList";
 import { KeyboardEvent } from "react";
 
 const CommentInputs = () => {
-  const queryClient = useQueryClient();
-
   const { pathname } = useLocation();
   const level = Number(pathname.split("/")[1]);
 
   const [name, changeName, resetName] = useInput("");
   const [content, changeContent, resetContent] = useInput("");
   const [password, changePassword, resetPassword] = useInput("");
-  const queryKey = useGetCommentList.getKey(level);
-  const { mutate: createComment } = useCreateComment({
-    onMutate: async (newComment: CommentType) => {
-      await queryClient.cancelQueries({ queryKey });
-      const previousCommentList = queryClient.getQueryData(queryKey);
-      queryClient.setQueryData(queryKey, (old: any) => {
-        const newCommentList = [...old.data, newComment];
-        return { ...old, data: newCommentList };
-      });
-      return { previousCommentList };
-    },
-    onError: (_err: any, _new: any, context: any) => {
-      queryClient.setQueryData(queryKey, context.previousCommentList);
-    },
-    onSettled: async () => {
-      queryClient.invalidateQueries({ queryKey });
-    },
-  });
-
+  const { mutate: createComment } = useCreateComment(level);
   const resetInputs = () => {
     resetName();
     resetContent();
