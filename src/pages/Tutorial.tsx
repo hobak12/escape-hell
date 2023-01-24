@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+// import { VideoList } from "../components";
 
 const VideoList = lazy(() => import("../components/VideoList"));
 
