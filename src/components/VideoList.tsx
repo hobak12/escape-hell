@@ -1,5 +1,6 @@
 import React from "react";
-import { Carousel } from "@trendyol-js/react-carousel";
+import { ScrollingCarousel } from "@trendyol-js/react-carousel";
+// import ArrowButton from "./ArrowButton";
 
 type VideoListProps = {
   title: string;
@@ -9,30 +10,25 @@ type VideoListProps = {
 const VideoList = ({ title, list }: VideoListProps) => {
   return (
     <div className="pt-6">
-      <h2 className="text-white text-3xl font-bold mb-3">{title}</h2>
-      {/* <ul className="flex flex-row gap-5 overflow-scroll whitespace-normal"> */}
-      <Carousel
-        show={3}
-        slide={1}
-        // swiping={true}
-        infinite={false}
-        rightArrow={<div className="text-white">{">"}</div>}
-        leftArrow={<div className="text-white">{"<"}</div>}
+      <h2 className="text-white text-3xl font-bold mb-3 mx-3">{title}</h2>
+      <ScrollingCarousel
+        className="flex"
+        // rightIcon={<ArrowButton direction="right" />}
+        // leftIcon={<ArrowButton direction="left" />}
       >
         {list.map((item) => (
-          <li key={item}>
+          <div key={item} className="mx-3">
             <iframe
-              className="w-[25rem] h-[14.0625rem] rounded"
+              className="rounded h-48 aspect-video"
               src={item}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-          </li>
+          </div>
         ))}
-      </Carousel>
-      {/* </ul> */}
+      </ScrollingCarousel>
     </div>
   );
 };
