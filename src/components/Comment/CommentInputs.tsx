@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { useLocation } from "react-router-dom";
 import useInput from "../../hooks/common/useInput";
 import useCreateComment from "../../hooks/query/useCreateComment";
@@ -23,7 +22,7 @@ const CommentInputs = () => {
       return alert("모든 값을 입력해주세요.");
     }
     const commentData = {
-      id: uuid(),
+      id: crypto.randomUUID(),
       name,
       content,
       created_at: new Date(),
