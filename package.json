@@ -23,6 +23,8 @@
     "zustand": "^4.3.2"
   },
   "scripts": {
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/index.css",
+    "watch:css": "postcss src/styles/tailwind.css -o src/styles/index.css --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
