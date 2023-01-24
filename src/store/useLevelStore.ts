@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
-type levelType = {
+interface levelType {
   level: number;
   setLevel: (level: number) => void;
-};
+}
 
 const useLevelStore = create(
   devtools<levelType>((set) => ({
