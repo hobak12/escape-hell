@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { useLocation } from "react-router-dom";
 import useInput from "../../hooks/common/useInput";
 import useCreateComment from "../../hooks/query/useCreateComment";
@@ -12,6 +11,7 @@ const CommentInputs = () => {
   const [content, changeContent, resetContent] = useInput("");
   const [password, changePassword, resetPassword] = useInput("");
   const { mutate: createComment } = useCreateComment(level);
+
   const resetInputs = () => {
     resetName();
     resetContent();
@@ -23,7 +23,7 @@ const CommentInputs = () => {
       return alert("모든 값을 입력해주세요.");
     }
     const commentData = {
-      id: uuid(),
+      id: crypto.randomUUID(),
       name,
       content,
       created_at: new Date(),
@@ -43,9 +43,24 @@ const CommentInputs = () => {
 
   return (
     <div className="bg-yellow-200">
-      <input type="text" value={name} onChange={changeName} placeholder="작성자 이름" />
-      <input type="password" value={password} onChange={changePassword} placeholder="비밀번호" />
-      <textarea value={content} onChange={changeContent} onKeyUp={onKeyUp} placeholder="작성내용" />
+      <input
+        type="text"
+        value={name}
+        onChange={changeName}
+        placeholder="작성자 이름"
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={changePassword}
+        placeholder="비밀번호"
+      />
+      <textarea
+        value={content}
+        onChange={changeContent}
+        onKeyUp={onKeyUp}
+        placeholder="작성내용"
+      />
       <button onClick={onCreateComment}>작성</button>
     </div>
   );
