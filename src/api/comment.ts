@@ -1,5 +1,5 @@
-import supabase from "../utils/supabase";
 import { QueryFunctionContext } from "react-query";
+import supabase from "../utils/supabase";
 
 const DB = "comment";
 

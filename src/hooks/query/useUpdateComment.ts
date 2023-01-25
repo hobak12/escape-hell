@@ -19,15 +19,16 @@ const useUpdateComment = ({ queryKey, commentId }: UpdateCommentProps) => {
     onMutate: async (newComment: CommentType) => {
       await queryClient.cancelQueries({ queryKey });
       const previousCommentList = queryClient.getQueryData(queryKey);
-      queryClient.setQueryData(queryKey, (old: any) =>
-        [...old].map((c) => {
+      queryClient.setQueryData(queryKey, (old: CommentType[] | undefined) => {
+        if (!old) return [newComment];
+        return [...old].map((c) => {
           if (c.id === commentId) return newComment;
           return c;
-        })
-      );
+        });
+      });
       return { previousCommentList };
     },
-    onError: (_err: AxiosError, _new: void, context: any) => {
+    onError: (_err: AxiosError, _new: CommentType, context: any) => {
       queryClient.setQueryData(queryKey, context.previousCommentList);
     },
     onSettled: async () => {

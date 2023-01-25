@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import { useMutation, useQueryClient } from "react-query";
 import CommentApi from "../../api/comment";
 import useGetCommentList from "./useGetCommentList";
@@ -10,13 +11,13 @@ const useCreateComment = (level: number) => {
     onMutate: async (newComment: CommentType) => {
       await queryClient.cancelQueries({ queryKey });
       const previousCommentList = queryClient.getQueryData(queryKey);
-      queryClient.setQueryData(queryKey, (old: any) => {
-        const newCommentList = [...old.data, newComment];
-        return { ...old, data: newCommentList };
+      queryClient.setQueryData(queryKey, (old: CommentType[] | undefined) => {
+        if (!old) return [newComment];
+        return [...old, newComment];
       });
       return { previousCommentList };
     },
-    onError: (_err: any, _new: any, context: any) => {
+    onError: (_err: AxiosError, _new: CommentType, context: any) => {
       queryClient.setQueryData(queryKey, context.previousCommentList);
     },
     onSettled: async () => {
