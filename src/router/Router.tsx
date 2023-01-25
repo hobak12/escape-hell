@@ -8,15 +8,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route
-          path="/:level"
-          element={
-            <>
-              <Header />
-              <Tutorial />
-            </>
-          }
-        />
+        <Route path="/:level" element={<Tutorial />} />
       </Routes>
     </BrowserRouter>
   );

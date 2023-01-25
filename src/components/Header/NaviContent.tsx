@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import tutorial from "../../data/tutorialList.json";
 import { tutorialType } from "./Header";
 
-type NaviBarProps = {
+type NaviContentProps = {
   dropDown: boolean;
 };
 
-const NaviContent = ({ dropDown }: NaviBarProps) => {
+const NaviContent = ({ dropDown }: NaviContentProps) => {
   const navigate = useNavigate();
   const { level } = useParams();
+
   return (
     <ul
       className={`${
@@ -18,7 +19,9 @@ const NaviContent = ({ dropDown }: NaviBarProps) => {
       } duration-500 ease-in-out transition bg-stone-800 p-5 rounded-md absolute `}
     >
       <li className="text-white p-1.5 text-lg">
-        <Link to="/">로드맵으로 돌아가기</Link>
+        <Link to="/" className="w-full text-left block">
+          로드맵으로 돌아가기
+        </Link>
       </li>
       {tutorial.map((item: tutorialType) => (
         <li key={item.level} className="text-white p-1.5 text-lg">
@@ -26,7 +29,9 @@ const NaviContent = ({ dropDown }: NaviBarProps) => {
             onClick={() => {
               navigate(`/${item.level}`);
             }}
-            className={item.level === level ? "text-red-600" : "text-white"}
+            className={`${
+              item.level === level ? "text-red-600" : "text-white"
+            } w-full text-left`}
           >
             {item.title}
           </button>

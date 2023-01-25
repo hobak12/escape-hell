@@ -12,10 +12,13 @@ const NaviBar = ({ dropDown, setDropDown }: NaviBarProps) => {
   const navigate = useNavigate();
   const { level } = useParams();
 
+  const LEVEL = Number(level);
+  const TITLE = tutorial[LEVEL - 1]["title"];
+
   const onPagination = (a: number) => {
-    navigate(`/${Number(level) + a}`);
+    navigate(`/${LEVEL + a}`);
   };
-  //   dropdown toggle
+
   const onDropDownMenu = () => {
     setDropDown((prev) => !prev);
   };
@@ -24,30 +27,23 @@ const NaviBar = ({ dropDown, setDropDown }: NaviBarProps) => {
     <div className="flex justify-between items-center mx-auto bg-stone-800 p-4 text-white z-10 w-full">
       <button
         onClick={() => onPagination(-1)}
-        disabled={Number(level) > 1 ? false : true}
+        disabled={LEVEL > 1 ? false : true}
       >
         <img
           className="w-5 h-5"
           src={
-            Number(level) > 1
+            LEVEL > 1
               ? "../icons/arrow-left.png"
               : "../icons/arrow-left-disabled.png"
           }
+          alt={LEVEL > 1 ? "arrow-left" : "arrow-left-disabled"}
         />
       </button>
       <button
         onClick={onDropDownMenu}
         className="bg-transparent flex justify-center items-center"
       >
-        {tutorial.map((item: tutorialType) => {
-          if (item.level === level) {
-            return (
-              <h2 key={item.level} className="mx-6 text-2xl">
-                {item.title}
-              </h2>
-            );
-          }
-        })}
+        <h2 className="mx-6 text-2xl">{TITLE}</h2>
         <img
           className="w-3 h-3 object-contain"
           src={
@@ -55,19 +51,21 @@ const NaviBar = ({ dropDown, setDropDown }: NaviBarProps) => {
               ? "../icons/chevron-top.png"
               : "../icons/chevron-bottom.png"
           }
+          alt={dropDown ? "chevron-top" : "chevron-bottom"}
         />
       </button>
       <button
         onClick={() => onPagination(1)}
-        disabled={Number(level) < 13 ? false : true}
+        disabled={LEVEL < 13 ? false : true}
       >
         <img
           className="w-5 h-5"
           src={
-            Number(level) < 13
+            LEVEL < 13
               ? "../icons/arrow-right.png"
               : "../icons/arrow-right-disabled.png"
           }
+          alt={LEVEL < 13 ? "arrow-right" : "arrow-right-disabled"}
         />
       </button>
     </div>
