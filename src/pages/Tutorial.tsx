@@ -1,6 +1,7 @@
 import { VideoList } from "../components";
 import CommentInputs from "../components/Comment/CommentInputs";
 import CommentList from "../components/Comment/CommentList";
+import Header from "../components/Header/Header";
 import { useParams } from "react-router-dom";
 import tutorial from "../data/tutorialList.json";
 
@@ -11,7 +12,7 @@ const Tutorial = () => {
   return (
     <div className="bg-neutral-900 min-h-screen">
       <div className="mx-32 my-0 py-12">
-        {/* header 컴포넌트 자리 */}
+        <Header />
         <h1 className="text-white text-6xl font-bold mx-3 my-8">{title}</h1>
         {techStackIcon.map((item) => (
           <VideoList
