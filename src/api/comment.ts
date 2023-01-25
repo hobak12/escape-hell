@@ -11,7 +11,7 @@ const CommentApi = {
 
   getAll: async ({ queryKey }: QueryFunctionContext) => {
     const level = queryKey[1];
-    return await supabase.from(DB).select().eq("level", level);
+    return await supabase.from(DB).select().eq("level", level).order("created_at", { ascending: true });
   },
 
   update: async ({ id, data }: { id: string; data: UpdateCommentType }) => await supabase.from(DB).update(data).eq("id", id),
