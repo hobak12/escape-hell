@@ -27,12 +27,15 @@ const Comment = ({ comment }: { comment: CommentType }) => {
     queryClient.setQueryData(queryKey, (old: any) => getNewCommentList(old));
     return { previousCommentList };
   };
+
   const onError = (_err: any, _new: any, context: any) => {
     queryClient.setQueryData(queryKey, context.previousCommentList);
   };
+
   const onSettled = async () => {
     queryClient.invalidateQueries({ queryKey });
   };
+
   const { mutate: updateComment } = useUpdateComment({
     onMutate: (newComment: CommentType) =>
       onMutate((old: any) =>
@@ -44,8 +47,10 @@ const Comment = ({ comment }: { comment: CommentType }) => {
     onError,
     onSettled,
   });
+
   const { mutate: deleteComment } = useDeleteComment({
-    onMutate: () => onMutate((old: any) => [...old.data].filter((c) => c.id !== comment.id)),
+    onMutate: () =>
+      onMutate((old: any) => [...old.data].filter((c) => c.id !== comment.id)),
     onError,
     onSettled,
   });
@@ -77,9 +82,24 @@ const Comment = ({ comment }: { comment: CommentType }) => {
       {isEdit && (
         <div>
           <div className="bg-yellow-200">
-            <input type="text" value={editName} onChange={changeEditName} placeholder="작성자 이름" />
-            <input type="password" value={editPassword} onChange={changeEditPassword} placeholder="비밀번호" />
-            <textarea value={editContent} onChange={changeEditContent} onKeyUp={onKeyUp} placeholder="작성내용" />
+            <input
+              type="text"
+              value={editName}
+              onChange={changeEditName}
+              placeholder="작성자 이름"
+            />
+            <input
+              type="password"
+              value={editPassword}
+              onChange={changeEditPassword}
+              placeholder="비밀번호"
+            />
+            <textarea
+              value={editContent}
+              onChange={changeEditContent}
+              onKeyUp={onKeyUp}
+              placeholder="작성내용"
+            />
             <button onClick={onUpdate}>수정</button>
           </div>
         </div>
