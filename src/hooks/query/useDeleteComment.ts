@@ -1,14 +1,31 @@
-import { useMutation } from "react-query";
+import { AxiosError } from "axios";
+import { QueryKey, useMutation, useQueryClient } from "react-query";
 import CommentApi from "../../api/comment";
 
-interface OptionsType {
-  onMutate: () => void;
-  onError: (_err: any, _new: any, context: any) => void;
-  onSettled: () => void;
+interface DeleteCommentProps {
+  queryKey: QueryKey;
+  commentId: string;
 }
 
-const useDeleteComment = (options: OptionsType) => {
-  return useMutation(CommentApi.delete, options);
+const useDeleteComment = ({ queryKey, commentId }: DeleteCommentProps) => {
+  const queryClient = useQueryClient();
+  const options = {
+    onMutate: async () => {
+      await queryClient.cancelQueries({ queryKey });
+      const previousCommentList = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, (old: any) => [...old.data].filter((c) => c.id !== commentId));
+      console.log({ previousCommentList });
+      return { previousCommentList };
+    },
+    onError: (_err: AxiosError, _new: void, context: any) => {
+      queryClient.setQueryData(queryKey, context.previousCommentList);
+    },
+    onSettled: async () => {
+      queryClient.invalidateQueries({ queryKey });
+    },
+  };
+
+  return useMutation<undefined[] | null, AxiosError, string, CommentType[]>(CommentApi.delete, options);
 };
 
 export default useDeleteComment;

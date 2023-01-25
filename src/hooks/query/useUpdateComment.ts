@@ -1,16 +1,41 @@
 import { AxiosError } from "axios";
-import { useMutation } from "react-query";
+import { QueryKey, useMutation, useQueryClient } from "react-query";
 import CommentApi from "../../api/comment";
 
-interface OptionsType {
-  //! newComment에 CommentType을 지정하면 에러 발생. 어떤 타입을 주어야하는지 잘 모르겠습니다.
-  onMutate: (newComment: any) => void;
-  onError: (_err: AxiosError, _new: any, context: any) => void;
-  onSettled: () => void;
+interface UpdateCommentProps {
+  queryKey: QueryKey;
+  commentId: string;
 }
 
-const useUpdateComment = (options: OptionsType) => {
-  return useMutation(CommentApi.update, options);
+interface CommentEditType {
+  id: string;
+  data: { name: string; content: string };
+}
+
+const useUpdateComment = ({ queryKey, commentId }: UpdateCommentProps) => {
+  const queryClient = useQueryClient();
+
+  const options = {
+    onMutate: async (newComment: CommentType) => {
+      await queryClient.cancelQueries({ queryKey });
+      const previousCommentList = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, (old: any) =>
+        [...old].map((c) => {
+          if (c.id === commentId) return newComment;
+          return c;
+        })
+      );
+      return { previousCommentList };
+    },
+    onError: (_err: AxiosError, _new: void, context: any) => {
+      queryClient.setQueryData(queryKey, context.previousCommentList);
+    },
+    onSettled: async () => {
+      queryClient.invalidateQueries({ queryKey });
+    },
+  };
+
+  return useMutation<undefined[] | null, AxiosError, CommentEditType, CommentType[]>(CommentApi.update, options);
 };
 
 export default useUpdateComment;
