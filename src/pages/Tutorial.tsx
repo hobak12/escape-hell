@@ -5,6 +5,9 @@ const VideoList = lazy(() => import("../components/VideoList"));
 
 const renderLoader = () => <p>Loading</p>;
 
+import CommentInputs from "../components/Comment/CommentInputs";
+import CommentList from "../components/Comment/CommentList";
+
 const Tutorial = () => {
   return (
     <div className="bg-neutral-900 min-h-screen">
@@ -21,6 +24,8 @@ const Tutorial = () => {
             ]}
           />
         </Suspense>
+        <CommentInputs />
+        <CommentList />
       </div>
     </div>
   );
