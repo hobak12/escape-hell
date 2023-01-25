@@ -8,6 +8,7 @@ interface DeleteCommentProps {
 }
 
 const useDeleteComment = ({ queryKey, commentId }: DeleteCommentProps) => {
+  console.log(commentId);
   const queryClient = useQueryClient();
   const options = {
     onMutate: async () => {
@@ -25,7 +26,8 @@ const useDeleteComment = ({ queryKey, commentId }: DeleteCommentProps) => {
     },
   };
 
-  return useMutation<undefined[] | null, AxiosError, string, CommentType[]>(CommentApi.delete, options);
+  return useMutation<undefined[] | null, AxiosError, any>(CommentApi.delete, options);
+  // return useMutation<undefined[] | null, AxiosError, string, CommentType[]>(CommentApi.delete, options);
 };
 
 export default useDeleteComment;

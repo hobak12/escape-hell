@@ -36,7 +36,8 @@ const useUpdateComment = ({ queryKey, commentId }: UpdateCommentProps) => {
     },
   };
 
-  return useMutation<undefined[] | null, AxiosError, CommentEditType, CommentType[]>(CommentApi.update, options);
+  return useMutation<undefined[] | null, AxiosError, any>(CommentApi.update, options);
+  // return useMutation<undefined[] | null, AxiosError, CommentEditType, CommentType[]>(CommentApi.update, options);
 };
 
 export default useUpdateComment;
