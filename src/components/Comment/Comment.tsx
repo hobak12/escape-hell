@@ -45,10 +45,10 @@ const Comment = ({ comment }: { comment: CommentType }) => {
   };
 
   return (
-    <>
+    <div className="bg-header mb-3 rounded p-3">
       {isEdit && (
         <div>
-          <div className="bg-yellow-200">
+          <div className="flex">
             <input type="text" value={editName} onChange={changeEditName} placeholder="작성자 이름" />
             <input type="password" value={editPassword} onChange={changeEditPassword} placeholder="비밀번호" />
             <textarea value={editContent} onChange={changeEditContent} onKeyUp={onKeyUp} placeholder="작성내용" />
@@ -58,18 +58,24 @@ const Comment = ({ comment }: { comment: CommentType }) => {
       )}
       {!isEdit && (
         <div>
-          <div>
-            {comment.name}
-            {getDate(comment.created_at)}
+          <div className="flex flex-row justify-between">
+            <div className="flex flex-row gap-2">
+              <div className="font-bold">{comment.name}</div>
+              <div className="text-date">{getDate(comment.created_at)}</div>
+            </div>
+            <div className="flex gap-2">
+              <button className="bg-primary px-2 rounded font-bold" onClick={() => setIsEdit(true)}>
+                수정
+              </button>
+              <button className="bg-primary px-2 rounded font-bold" onClick={onDelete}>
+                삭제
+              </button>
+            </div>
           </div>
-          <div>
-            <button onClick={() => setIsEdit(true)}>수정</button>
-            <button onClick={onDelete}>삭제</button>
-          </div>
-          {comment.content}
+          <div className="mt-2 mb-3">{comment.content}</div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

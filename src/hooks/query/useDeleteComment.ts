@@ -14,8 +14,10 @@ const useDeleteComment = ({ queryKey, commentId }: DeleteCommentProps) => {
     onMutate: async () => {
       await queryClient.cancelQueries({ queryKey });
       const previousCommentList = queryClient.getQueryData(queryKey);
-      queryClient.setQueryData(queryKey, (old: any) => [...old.data].filter((c) => c.id !== commentId));
-      console.log({ previousCommentList });
+      queryClient.setQueryData(queryKey, (old: CommentType[] | undefined) => {
+        if (!old) return [];
+        return [...old].filter((c) => c.id !== commentId);
+      });
       return { previousCommentList };
     },
     onError: (_err: AxiosError, _new: void, context: any) => {
@@ -25,7 +27,6 @@ const useDeleteComment = ({ queryKey, commentId }: DeleteCommentProps) => {
       queryClient.invalidateQueries({ queryKey });
     },
   };
-
   return useMutation<undefined[] | null, AxiosError, any>(CommentApi.delete, options);
   // return useMutation<undefined[] | null, AxiosError, string, CommentType[]>(CommentApi.delete, options);
 };

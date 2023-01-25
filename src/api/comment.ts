@@ -11,7 +11,7 @@ const CommentApi = {
 
   getAll: async ({ queryKey }: QueryFunctionContext): Promise<CommentType[] | null> => {
     const level = queryKey[1];
-    const { data } = await supabase.from(DB).select().eq("level", level).order("created_at", { ascending: true });
+    const { data } = await supabase.from(DB).select().eq("level", level).order("created_at", { ascending: false });
     return data;
   },
 

@@ -35,7 +35,6 @@ const useUpdateComment = ({ queryKey, commentId }: UpdateCommentProps) => {
       queryClient.invalidateQueries({ queryKey });
     },
   };
-
   return useMutation<undefined[] | null, AxiosError, any>(CommentApi.update, options);
   // return useMutation<undefined[] | null, AxiosError, CommentEditType, CommentType[]>(CommentApi.update, options);
 };
