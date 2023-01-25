@@ -1,6 +1,7 @@
 [
   {
     "title": "기초공사",
+    "level": "1",
     "techStackIcon": [
       { "src": "HTML5", "alt": "HTML 5" },
       { "src": "CSS3", "alt": "CSS 3" },
@@ -9,6 +10,7 @@
   },
   {
     "title": "라이브러리",
+    "level": "2",
     "techStackIcon": [
       { "src": "Angular", "alt": "Garbage" },
       { "src": "Vue", "alt": "Vue.js" },
@@ -17,10 +19,12 @@
   },
   {
     "title": "라이브러리 심화",
+    "level": "3",
     "techStackIcon": [{ "src": "React", "alt": "React.js" }]
   },
   {
     "title": "Style",
+    "level": "4",
     "techStackIcon": [
       { "src": "Styled-Components", "alt": "Styled-Components" },
       { "src": "TailwindCSS", "alt": "Tailwind CSS" }
@@ -28,6 +32,7 @@
   },
   {
     "title": "상태 관리 라이브러리",
+    "level": "5",
     "techStackIcon": [
       { "src": "Redux", "alt": "Redux" },
       { "src": "Recoil", "alt": "Recoil" },
@@ -37,6 +42,7 @@
   },
   {
     "title": "라우터",
+    "level": "6",
     "techStackIcon": [
       { "src": "React-Router-Dom", "alt": "React-Router-Dom" },
       { "src": "TanStack-Router", "alt": "TanStack-Router" }
@@ -44,6 +50,7 @@
   },
   {
     "title": "타입스크립트",
+    "level": "7",
     "techStackIcon": [
       { "src": "TypeScript", "alt": "TypeScript" },
       { "src": "React", "alt": "React" }
@@ -51,10 +58,12 @@
   },
   {
     "title": "Next와 서버사이드 렌더링",
+    "level": "8",
     "techStackIcon": [{ "src": "Next", "alt": "Next.js" }]
   },
   {
     "title": "테스팅",
+    "level": "9",
     "techStackIcon": [
       { "src": "Jest", "alt": "Jest.js" },
       { "src": "Testing-Library", "alt": "Testing-Library" }
@@ -62,6 +71,7 @@
   },
   {
     "title": "데이터 베이스",
+    "level": "10",
     "techStackIcon": [
       { "src": "MongoDB", "alt": "MongoDB" },
       { "src": "MySQL", "alt": "MySQL" },
@@ -71,6 +81,7 @@
   },
   {
     "title": "클라우드",
+    "level": "11",
     "techStackIcon": [
       { "src": "AWS", "alt": "AWS" },
       { "src": "Firebase", "alt": "MySQL" },
@@ -79,6 +90,7 @@
   },
   {
     "title": "모듈 번들러",
+    "level": "12",
     "techStackIcon": [
       { "src": "Webpack", "alt": "Webpack" },
       { "src": "Vite", "alt": "Vite" },
@@ -87,6 +99,7 @@
   },
   {
     "title": "버전관리와 협업",
+    "level": "13",
     "techStackIcon": [
       { "src": "Git", "alt": "Git" },
       { "src": "Github", "alt": "Github" }
