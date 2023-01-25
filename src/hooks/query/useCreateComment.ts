@@ -6,7 +6,7 @@ const useCreateComment = (level: number) => {
   const queryClient = useQueryClient();
   const queryKey = useGetCommentList.getKey(level);
 
-  return useMutation(CommentApi.create, {
+  const options = {
     onMutate: async (newComment: CommentType) => {
       await queryClient.cancelQueries({ queryKey });
       const previousCommentList = queryClient.getQueryData(queryKey);
@@ -22,7 +22,9 @@ const useCreateComment = (level: number) => {
     onSettled: async () => {
       queryClient.invalidateQueries({ queryKey });
     },
-  });
+  };
+
+  return useMutation(CommentApi.create, options);
 };
 
 export default useCreateComment;

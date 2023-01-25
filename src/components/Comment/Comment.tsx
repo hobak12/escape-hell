@@ -1,5 +1,4 @@
 import { KeyboardEvent, useState } from "react";
-import { useQueryClient } from "react-query";
 import { useLocation } from "react-router-dom";
 import useInput from "../../hooks/common/useInput";
 import useDeleteComment from "../../hooks/query/useDeleteComment";
@@ -8,7 +7,6 @@ import useUpdateComment from "../../hooks/query/useUpdateComment";
 import getDate from "../../utils/getDate";
 
 const Comment = ({ comment }: { comment: CommentType }) => {
-  const queryClient = useQueryClient();
   const { pathname } = useLocation();
   const level = Number(pathname.split("/")[1]);
 
@@ -21,34 +19,8 @@ const Comment = ({ comment }: { comment: CommentType }) => {
 
   const queryKey = useGetCommentList.getKey(level);
 
-  const onMutate = async (getNewCommentList: Function) => {
-    await queryClient.cancelQueries({ queryKey });
-    const previousCommentList = queryClient.getQueryData(queryKey);
-    queryClient.setQueryData(queryKey, (old: any) => getNewCommentList(old));
-    return { previousCommentList };
-  };
-  const onError = (_err: any, _new: any, context: any) => {
-    queryClient.setQueryData(queryKey, context.previousCommentList);
-  };
-  const onSettled = async () => {
-    queryClient.invalidateQueries({ queryKey });
-  };
-  const { mutate: updateComment } = useUpdateComment({
-    onMutate: (newComment: CommentType) =>
-      onMutate((old: any) =>
-        [...old.data].map((c) => {
-          if (c.id === comment.id) return newComment;
-          return c;
-        })
-      ),
-    onError,
-    onSettled,
-  });
-  const { mutate: deleteComment } = useDeleteComment({
-    onMutate: () => onMutate((old: any) => [...old.data].filter((c) => c.id !== comment.id)),
-    onError,
-    onSettled,
-  });
+  const { mutate: updateComment } = useUpdateComment({ queryKey, commentId: comment.id });
+  const { mutate: deleteComment } = useDeleteComment({ queryKey, commentId: comment.id });
 
   const onUpdate = () => {
     if (password !== editPassword) {

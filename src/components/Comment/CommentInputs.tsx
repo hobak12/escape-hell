@@ -31,7 +31,6 @@ const CommentInputs = () => {
     };
     createComment(commentData);
     resetInputs();
-    return alert("댓글을 작성하였습니다.");
   };
 
   const onKeyUp = (e: KeyboardEvent<HTMLTextAreaElement>) => {

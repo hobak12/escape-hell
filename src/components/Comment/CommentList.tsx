@@ -17,9 +17,7 @@ const CommentList = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column-reverse" }}>
-      {data?.data?.map((comment) => (
-        <Comment key={comment.id} comment={comment} />
-      ))}
+      {data && data.map((comment) => <Comment key={comment.id} comment={comment} />)}
     </div>
   );
 };
