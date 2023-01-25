@@ -4,6 +4,7 @@ type tutorialListType = {
   title: string;
   techStackIcon: TechIconImg[];
 };
+
 type MainListProps = {
   tutorial: tutorialListType[];
 };
