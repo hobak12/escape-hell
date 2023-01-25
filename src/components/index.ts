@@ -1,3 +1,4 @@
-import MainList from "./MainList";
+import VideoList from "./VideoList";
+import MainList from "./MainList/MainList";
 
-export { MainList };
+export { MainList, VideoList };

@@ -10,14 +10,14 @@
   {
     "title": "라이브러리",
     "techStackIcon": [
-      { "src": "Angular", "alt": "Garbage" },
-      { "src": "Vue", "alt": "Vue.js" },
-      { "src": "React", "alt": "React.js" }
+      { "src": "Angular", "alt": "Angular" },
+      { "src": "Vue", "alt": "Vue" },
+      { "src": "React", "alt": "React" }
     ]
   },
   {
     "title": "라이브러리 심화",
-    "techStackIcon": [{ "src": "React", "alt": "React.js" }]
+    "techStackIcon": [{ "src": "React", "alt": "React" }]
   },
   {
     "title": "Style",
@@ -51,7 +51,7 @@
   },
   {
     "title": "Next와 서버사이드 렌더링",
-    "techStackIcon": [{ "src": "Next", "alt": "Next.js" }]
+    "techStackIcon": [{ "src": "Next", "alt": "Next" }]
   },
   {
     "title": "테스팅",
