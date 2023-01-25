@@ -11,6 +11,7 @@ const CommentInputs = () => {
   const [content, changeContent, resetContent] = useInput("");
   const [password, changePassword, resetPassword] = useInput("");
   const { mutate: createComment } = useCreateComment(level);
+
   const resetInputs = () => {
     resetName();
     resetContent();
@@ -41,9 +42,24 @@ const CommentInputs = () => {
 
   return (
     <div className="bg-yellow-200">
-      <input type="text" value={name} onChange={changeName} placeholder="작성자 이름" />
-      <input type="password" value={password} onChange={changePassword} placeholder="비밀번호" />
-      <textarea value={content} onChange={changeContent} onKeyUp={onKeyUp} placeholder="작성내용" />
+      <input
+        type="text"
+        value={name}
+        onChange={changeName}
+        placeholder="작성자 이름"
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={changePassword}
+        placeholder="비밀번호"
+      />
+      <textarea
+        value={content}
+        onChange={changeContent}
+        onKeyUp={onKeyUp}
+        placeholder="작성내용"
+      />
       <button onClick={onCreateComment}>작성</button>
     </div>
   );
