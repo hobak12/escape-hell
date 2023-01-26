@@ -16,7 +16,7 @@ const NaviContent = ({ dropDown }: NaviContentProps) => {
     <ul
       className={`${
         dropDown ? "translate-y-80" : "-translate-y-full"
-      } duration-500 ease-in-out transition bg-stone-800 p-5 rounded-md absolute `}
+      } duration-500 ease-in-out transition bg-stone-800 p-5 rounded-md absolute z-10`}
     >
       <li className="text-white p-1.5 text-lg">
         <Link to="/" className="w-full text-left block">
