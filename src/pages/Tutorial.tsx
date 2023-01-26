@@ -4,7 +4,6 @@ import CommentList from "../components/Comment/CommentList";
 import Header from "../components/Header/Header";
 import { useParams } from "react-router-dom";
 import tutorial from "../data/tutorialList.json";
-//
 import checkList from "../data/checkYourSelf.json";
 import { useEffect, useState } from "react";
 import Modal from "../components/Modal";
@@ -14,8 +13,9 @@ const Tutorial = () => {
   const { title, techStackIcon } = tutorial[parseInt(level!) - 1];
   const checkListJson = checkList[parseInt(level!) - 1];
   const [userCheck, setUserCheck] = useState(checkListJson);
-
+  console.log(1);
   const [modalOpen, setModalOpen] = useState(false);
+  const local_check = localStorage.getItem("checked");
   const openModal = () => {
     setModalOpen(true);
   };
@@ -24,7 +24,7 @@ const Tutorial = () => {
   };
 
   const setDone = (id: number) => {
-    const newChecked = [...checkListJson];
+    const newChecked = [...userCheck];
     const idx = newChecked.findIndex((t) => t.id === id);
     newChecked[idx].isDone = !newChecked[idx].isDone;
     setUserCheck(newChecked);
@@ -32,11 +32,12 @@ const Tutorial = () => {
 
   useEffect(() => {
     const getData = () => {
-      const local_check = localStorage.getItem("checked");
-      if (local_check?.length === 0) {
-        setUserCheck(checkListJson);
-      } else {
+      if (local_check?.includes("true")) {
+        console.log(2);
         setUserCheck(JSON.parse(local_check!));
+      } else {
+        console.log(3);
+        setUserCheck(checkListJson);
       }
     };
     getData();
@@ -45,6 +46,7 @@ const Tutorial = () => {
   useEffect(() => {
     const saveCheckList = () => {
       localStorage.setItem("checked", JSON.stringify(userCheck));
+      console.log(4);
     };
     saveCheckList();
   }, [userCheck]);

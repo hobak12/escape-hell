@@ -1,8 +1,9 @@
 import React from "react";
 import "./modal.css";
+import { ReactNode } from "react";
 
-const Modal = (props) => {
-  const { open, close, header } = props;
+const Modal = (props: ModalType) => {
+  const { open, close, header, children } = props;
 
   return (
     <div className={open ? "openModal modal" : "modal"}>
@@ -14,7 +15,7 @@ const Modal = (props) => {
               &times;
             </button>
           </header>
-          <main>{props.children}</main>
+          <main>{children}</main>
           <footer>
             <button className="close" onClick={close}>
               close

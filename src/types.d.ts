@@ -24,3 +24,10 @@ declare interface VideoType {
   subject: string;
   url: string;
 }
+
+declare interface ModalType {
+  open: boolean;
+  close: () => void;
+  header: string;
+  children: ReactNode;
+}
