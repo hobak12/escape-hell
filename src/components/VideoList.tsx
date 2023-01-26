@@ -1,4 +1,3 @@
-import React from "react";
 import TechIcon from "./TechIcon";
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -19,10 +18,9 @@ const VideoList = ({ title, url, src, level }: VideoListProps) => {
     () => axios.get(url)
   );
 
-  if (isLoading) return <div style={{ color: "white" }}> Loading...</div>;
+  if (isLoading) return <div className="text-white"> Loading...</div>;
 
-  if (isError)
-    return <div style={{ color: "white" }}>An error has occurred</div>;
+  if (isError) return <div className="text-white">An error has occurred</div>;
 
   return (
     <div className="pt-6">
@@ -30,22 +28,22 @@ const VideoList = ({ title, url, src, level }: VideoListProps) => {
         <TechIcon className="w-12 h-12" src={src} alt={title} />
         <h2 className="text-white text-3xl align-middle font-bold ">{title}</h2>
       </div>
-      <div className="flex">
+
+      <ul className="overflow-x-auto whitespace-nowrap no-scrollbar">
         {data?.data.items.map((i: any, idx: number) => {
           return (
-            <div key={idx} className="mx-3">
+            <li key={idx} className="inline-block mx-3">
               <a
-                className="rounded h-48 aspect-video"
                 href={`https://www.youtube.com/watch?v=${i.snippet.resourceId.videoId}`}
               >
                 <img alt="" src={i.snippet.thumbnails.medium.url} />
               </a>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
 
-export default React.memo(VideoList);
+export default VideoList;

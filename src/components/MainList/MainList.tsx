@@ -11,7 +11,7 @@ type MainListProps = {
 
 const MainList = ({ tutorial }: MainListProps) => {
   return (
-    <ul className="max-w-screen-xl my-0 mx-auto flex flex-col gap-10">
+    <ul className="max-w-screen-xl my-0 mx-auto flex flex-col gap-10 mt-44">
       {tutorial.map(({ title, techStackIcon }, idx) => (
         <MainListItem
           key={idx}

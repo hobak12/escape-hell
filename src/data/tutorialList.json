@@ -6,12 +6,12 @@
       {
         "src": "HTML5",
         "alt": "HTML 5",
-        "url": "asdf"
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMDUzDDCKW-pCZQY-MMCX5yB&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
       },
       {
         "src": "CSS3",
         "alt": "CSS 3",
-        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL1BztTYDF-QNrtkvjkT6Wjc8es7QB4Gty&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMDaVaBmkX0qfB45R_bYrV62&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
       },
       {
         "src": "JavaScript",
