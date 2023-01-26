@@ -12,26 +12,28 @@ const CommentList = () => {
     return <>error...</>;
   }
 
-  if (!isLoading) {
-    <>
-      {new Array(6).fill(null).map((_) => (
-        <SkeletonTheme baseColor="#202020" highlightColor="#444">
-          <div className="bg-header mb-3 rounded p-3">
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-row gap-2">
-                <Skeleton width={150} height={24} />
-                <Skeleton width={100} height={24} />
+  if (isLoading) {
+    return (
+      <>
+        {new Array(6).fill(null).map((_, idx) => (
+          <SkeletonTheme baseColor="#202020" highlightColor="#444" key={idx}>
+            <div className="bg-header mb-3 rounded p-3">
+              <div className="flex flex-row justify-between">
+                <div className="flex flex-row gap-2">
+                  <Skeleton width={150} height={24} />
+                  <Skeleton width={100} height={24} />
+                </div>
+                <div className="flex gap-2">
+                  <Skeleton width={45} height={24} />
+                  <Skeleton width={45} height={24} />
+                </div>
               </div>
-              <div className="flex gap-2">
-                <Skeleton width={45} height={24} />
-                <Skeleton width={45} height={24} />
-              </div>
+              <Skeleton width={"100%"} height={24} count={2} />
             </div>
-            <Skeleton width={"100%"} height={24} count={2} />
-          </div>
-        </SkeletonTheme>
-      ))}
-    </>;
+          </SkeletonTheme>
+        ))}
+      </>
+    );
   }
 
   return <div className="flex-column my-2">{data && data.map((comment) => <Comment key={comment.id} comment={comment} />)}</div>;
