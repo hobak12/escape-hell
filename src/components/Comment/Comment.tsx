@@ -46,7 +46,7 @@ const Comment = ({ comment }: { comment: CommentType }) => {
 
   return (
     <div className="bg-header mb-3 rounded p-3">
-      {isEdit && (
+      {isEdit ? (
         <div className="flex-column gap-3 bg-header my-3 p-5">
           <div className="w-full flex flex-row gap-2">
             <input
@@ -77,8 +77,7 @@ const Comment = ({ comment }: { comment: CommentType }) => {
             </button>
           </div>
         </div>
-      )}
-      {!isEdit && (
+      ) : (
         <div>
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-2">
