@@ -67,7 +67,7 @@ const CommentInputs = () => {
         rows={4}
       />
       <div className="flex justify-end">
-        <button className="bg-primary px-5 rounded font-bold" onClick={onCreateComment}>
+        <button className="bg-primary px-2 rounded font-bold" onClick={onCreateComment}>
           등록
         </button>
       </div>
