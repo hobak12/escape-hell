@@ -47,12 +47,34 @@ const Comment = ({ comment }: { comment: CommentType }) => {
   return (
     <div className="bg-header mb-3 rounded p-3">
       {isEdit && (
-        <div>
-          <div className="flex">
-            <input type="text" value={editName} onChange={changeEditName} placeholder="작성자 이름" />
-            <input type="password" value={editPassword} onChange={changeEditPassword} placeholder="비밀번호" />
-            <textarea value={editContent} onChange={changeEditContent} onKeyUp={onKeyUp} placeholder="작성내용" />
-            <button onClick={onUpdate}>수정</button>
+        <div className="flex-column gap-3 bg-header my-3 p-5">
+          <div className="w-full flex flex-row gap-2">
+            <input
+              className="flex-1 bg-transparent border border-white rounded p-1"
+              type="text"
+              value={editName}
+              onChange={changeEditName}
+              placeholder="작성자 이름"
+            />
+            <input
+              className="flex-1 bg-transparent border border-white rounded p-1"
+              type="password"
+              value={editPassword}
+              onChange={changeEditPassword}
+              placeholder="비밀번호"
+            />
+          </div>
+          <textarea
+            className="w-full bg-transparent resize-none border rounded p-1 mt-3 mb-1"
+            value={editContent}
+            onChange={changeEditContent}
+            onKeyUp={onKeyUp}
+            placeholder="작성내용"
+          />
+          <div className="flex justify-end">
+            <button className="bg-primary px-2 rounded font-bold" onClick={onUpdate}>
+              수정
+            </button>
           </div>
         </div>
       )}
