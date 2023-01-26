@@ -1,6 +1,7 @@
 declare type TechIconImg = {
   src: string;
   alt: string;
+  className?: string;
 };
 
 declare interface CommentType {

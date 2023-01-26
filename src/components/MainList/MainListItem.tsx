@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import TechIcon from "./TechIcon";
+import TechIcon from "../TechIcon";
 
 type MainListItemProps = {
   idx: number;
