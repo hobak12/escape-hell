@@ -11,8 +11,8 @@ const Tutorial = () => {
 
   return (
     <div className="bg-neutral-900 min-h-screen">
+      <Header />
       <div className="mx-32 my-0 py-12">
-        <Header />
         <h1 className="text-white text-6xl font-bold mx-3 my-8">{title}</h1>
         {techStackIcon.map((item) => (
           <VideoList
