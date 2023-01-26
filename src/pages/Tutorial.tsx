@@ -10,8 +10,8 @@ const Tutorial = () => {
 
   return (
     <div className="bg-neutral-900 min-h-screen">
+      {/* header 컴포넌트 자리 */}
       <div className="mx-32 my-0 py-12">
-        {/* header 컴포넌트 자리 */}
         <h1 className="text-white text-6xl font-bold mx-3 my-8">{title}</h1>
         {techStackIcon.map((item) => (
           <VideoList
