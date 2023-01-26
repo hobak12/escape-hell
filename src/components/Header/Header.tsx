@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import tutorial from "../../data/tutorialList.json";
+import { useParams } from "react-router-dom";
 import NaviBar from "./NaviBar";
 import NaviContent from "./NaviContent";
 
