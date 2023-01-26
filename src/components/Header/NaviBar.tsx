@@ -24,7 +24,7 @@ const NaviBar = ({ dropDown, setDropDown }: NaviBarProps) => {
   };
 
   return (
-    <div className="flex justify-between items-center mx-auto bg-stone-800 p-4 text-white z-10 w-full">
+    <div className="flex justify-between items-center mx-auto bg-stone-800 p-4 text-white z-20 w-full">
       <button
         onClick={() => onPagination(-1)}
         disabled={LEVEL > 1 ? false : true}
@@ -43,7 +43,7 @@ const NaviBar = ({ dropDown, setDropDown }: NaviBarProps) => {
         onClick={onDropDownMenu}
         className="bg-transparent flex justify-center items-center"
       >
-        <h2 className="mx-6 text-2xl">{TITLE}</h2>
+        <h2 className="mx-6 text-2xl font-bold">{TITLE}</h2>
         <img
           className="w-3 h-3 object-contain"
           src={

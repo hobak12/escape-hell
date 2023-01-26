@@ -10,8 +10,8 @@ const Tutorial = () => {
   const { title, techStackIcon } = tutorial[parseInt(level!) - 1];
 
   return (
-    <div className="bg-neutral-900 min-h-screen">
-      <div className="mx-32 my-0 py-12">
+    <>
+      <div className="bg-neutral-900 min-h-screen">
         <Header />
         <h1 className="text-white text-6xl font-bold mx-3 my-8">{title}</h1>
         {techStackIcon.map((item) => (
@@ -24,9 +24,10 @@ const Tutorial = () => {
           />
         ))}
         <CommentInputs />
+        <div className="bg-header h-px" />
         <CommentList />
       </div>
-    </div>
+    </>
   );
 };
 
