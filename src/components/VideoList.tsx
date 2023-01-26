@@ -1,5 +1,3 @@
-import React from "react";
-import { ScrollingCarousel } from "@trendyol-js/react-carousel";
 import TechIcon from "./TechIcon";
 
 type VideoListProps = {
@@ -18,24 +16,22 @@ const VideoList = ({ title, list, src }: VideoListProps) => {
         <TechIcon className="w-12 h-12" src={src} alt={title} />
         <h2 className="text-white text-3xl align-middle font-bold ">{title}</h2>
       </div>
-      <ScrollingCarousel className="flex">
+      <ul className="flex flex-row gap-5 overflow-scroll whitespace-normal">
         {list.map((item) => {
           return (
-            <div key={item} className="mx-3">
-              <iframe
+            <li key={item} className="mx-3">
+              <embed
                 className="rounded h-48 aspect-video"
                 src={item}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
+                type="video/mp4"
+                title="Keyboard Cat"
+              />
+            </li>
           );
         })}
-      </ScrollingCarousel>
+      </ul>
     </div>
   );
 };
 
-export default React.memo(VideoList);
+export default VideoList;
