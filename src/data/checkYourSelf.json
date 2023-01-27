@@ -7,7 +7,7 @@
     },
     {
       "id": 2,
-      "content": "CSS의 블록태그와 인라인태그를 구분할 수 있습니다.",
+      "content": "CSS의 블록 속성과 인라인 속성을 구분할 수 있습니다.",
       "isDone": false
     },
     {
@@ -36,7 +36,7 @@
   [
     {
       "id": 1,
-      "content": "주요 네이티브 Hook들 활용할 수 있습니다.",
+      "content": "주요 네이티브 Hook을 활용할 수 있습니다.",
       "isDone": false
     },
     {
@@ -53,12 +53,12 @@
   [
     {
       "id": 1,
-      "content": "css framework와 css library의 사용 이유를 설명할 수 있습니다.",
+      "content": "CSS framework와 CSS library의 사용 이유를 설명할 수 있습니다.",
       "isDone": false
     },
     {
       "id": 2,
-      "content": "css framework와 css library의 장점과 단점을 설명할 수 있습니다.",
+      "content": "CSS framework와 CSS library의 장점과 단점을 설명할 수 있습니다.",
       "isDone": false
     },
     {
@@ -97,7 +97,7 @@
     },
     {
       "id": 3,
-      "content": "useParam에 대해 설명할 수 있습니다.",
+      "content": "useParams에 대해 설명할 수 있습니다.",
       "isDone": false
     },
     {
