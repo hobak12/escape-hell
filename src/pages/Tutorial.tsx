@@ -23,9 +23,12 @@ const Tutorial = () => {
             url={item.url}
           />
         ))}
-        <CommentInputs />
-        <div className="bg-header h-px" />
-        <CommentList />
+        <div className="bg-default flex-column text-white px-10 pt-2 pb-10">
+          <div className="bg-header h-px" />
+          <CommentInputs />
+          <div className="bg-header h-px" />
+          <CommentList />
+        </div>
       </div>
     </>
   );
