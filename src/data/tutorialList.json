@@ -1,0 +1,225 @@
+[
+  {
+    "title": "기초공사",
+    "level": "1",
+    "techStackIcon": [
+      {
+        "src": "HTML5",
+        "alt": "HTML 5",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMDUzDDCKW-pCZQY-MMCX5yB&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "CSS3",
+        "alt": "CSS 3",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMDaVaBmkX0qfB45R_bYrV62&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "JavaScript",
+        "alt": "JavaScript",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMA4uSig3hCjl7wTDeyIeZVU&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "라이브러리",
+    "level": "2",
+    "techStackIcon": [
+      {
+        "src": "Angular",
+        "alt": "Angular",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL1BztTYDF-QNrtkvjkT6Wjc8es7QB4Gty&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Vue",
+        "alt": "Vue",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLB7CpjPWqHOtYP7P_0Ls9XNed0NLvmkAh&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "React",
+        "alt": "React",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLZKTXPmaJk8J_fHAzPLH8CJ_HO_M33e7-&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "라이브러리 심화",
+    "level": "3",
+    "techStackIcon": [
+      {
+        "src": "React",
+        "alt": "React",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLZ5oZ2KmQEYjwhSxjB_74PoU6pmFzgVMO&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "Style",
+    "level": "4",
+    "techStackIcon": [
+      {
+        "src": "Styled-Components",
+        "alt": "Styled-Components",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLC3y8-rFHvwgu-G08-7ovbN9EyhF_cltM&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "TailwindCSS",
+        "alt": "Tailwind CSS",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "상태 관리 라이브러리",
+    "level": "5",
+    "techStackIcon": [
+      {
+        "src": "Redux",
+        "alt": "Redux",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMB-iGMgONoRPArZfjRuRNVc&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Recoil",
+        "alt": "Recoil",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLY-nQKxN_zxDCtJsUMjfb1gZ8a2PsLWxJ&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "React-Query",
+        "alt": "React-Query",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLC3y8-rFHvwjTELCrPrcZlo6blLBUspd2&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "라우터",
+    "level": "6",
+    "techStackIcon": [
+      {
+        "src": "React-Router-Dom",
+        "alt": "React-Router-Dom",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLC3y8-rFHvwjkxt8TOteFdT_YmzwpBlrG&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "타입스크립트",
+    "level": "7",
+    "techStackIcon": [
+      {
+        "src": "TypeScript",
+        "alt": "TypeScript",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLlSZlNj22M7S1HmF3Vs8TJ2gUq_0xNN6-&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "React",
+        "alt": "React",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLZKTXPmaJk8KhKQ_BILr1JKCJbR0EGlx0&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "Next와 서버사이드 렌더링",
+    "level": "8",
+    "techStackIcon": [
+      {
+        "src": "Next",
+        "alt": "Next",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLZKTXPmaJk8Lx3TqPlcEAzTL8zcpBz7NP&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "테스팅",
+    "level": "9",
+    "techStackIcon": [
+      {
+        "src": "Jest",
+        "alt": "Jest.js",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLZKTXPmaJk8L1xCg_1cRjL5huINlP2JKt&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Testing-Library",
+        "alt": "Testing-Library",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4cUxeGkcC9gm4_-5UsNmLqMosM-dzuvQ&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "데이터 베이스",
+    "level": "10",
+    "techStackIcon": [
+      {
+        "src": "MongoDB",
+        "alt": "MongoDB",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4cUxeGkcC9h77dJ-QJlwGlZlTd4ecZOA&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "MySQL",
+        "alt": "MySQL",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLVsNizTWUw7GCfy5RH27cQL5MeKYnl8Pm&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Graphql",
+        "alt": "Grapql",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4cUxeGkcC9iK6Qhn-QLcXCXPQUov1U7f&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Supabase",
+        "alt": "Supabase",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4cUxeGkcC9hUb6sHthUEwG7r9VDPBMKO&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "클라우드",
+    "level": "11",
+    "techStackIcon": [
+      {
+        "src": "AWS",
+        "alt": "AWS",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMC5AYnBg8ffg5utOLwEj4fZ&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Firebase",
+        "alt": "Firebase",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLfLgtT94nNq3PzZinqs9Afuiai--r5NB_&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "CloudFlare",
+        "alt": "CloudFlare",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLOgmFrM3hTGfEyeO8Gw2aoANzPh-ehMBN&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "모듈 번들러",
+    "level": "12",
+    "techStackIcon": [
+      {
+        "src": "Webpack",
+        "alt": "Webpack",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMChcT9IKopFDoAIoTA-03DA&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Turbopack",
+        "alt": "Turbopack",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLBnKlKpPeagklXq6uU428LzRj4rWn7HCu&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  },
+  {
+    "title": "버전관리와 협업",
+    "level": "13",
+    "techStackIcon": [
+      {
+        "src": "Git",
+        "alt": "Git",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMA8iwZwrGyNXCGy2LAAsTXk&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      },
+      {
+        "src": "Github",
+        "alt": "Github",
+        "url": "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLuHgQVnccGMDWjb0TWItMCfDWDs8Y3Oo7&maxResults=50&key=AIzaSyCHT-JZ1WdmBmyKJEecK8jpQumVDvuVtxI"
+      }
+    ]
+  }
+]

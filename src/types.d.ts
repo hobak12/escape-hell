@@ -1,14 +1,25 @@
+declare type TechIconImg = {
+  src: string;
+  alt: string;
+  className?: string;
+};
+
 declare interface CommentType {
-  id: number;
+  id: string;
   name: string;
   content: string;
-  createdAt: number;
+  created_at: Date;
   level: number;
   password: string;
 }
 
+declare interface UpdateCommentType {
+  name?: string;
+  content?: string;
+}
+
 declare interface VideoType {
-  id: number;
+  id: string;
   level: number;
   subject: string;
   url: string;
