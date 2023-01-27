@@ -1,3 +1,4 @@
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import TechIcon from "./TechIcon";
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -18,7 +19,33 @@ const VideoList = ({ title, url, src, level }: VideoListProps) => {
     () => axios.get(url)
   );
 
-  if (isLoading) return <div className="text-white"> Loading...</div>;
+  if (isLoading) {
+    return (
+      <>
+        {new Array(6).fill(null).map((_, idx) => (
+          <SkeletonTheme baseColor="#202020" highlightColor="#444" key={idx}>
+            <div className="flex flex-row gap-5 ml-3 mb-1 items-center ">
+              <Skeleton width={48} height={48} />
+              <Skeleton width={110} height={36} />
+            </div>
+
+            <div className="bg-header mb-3 rounded p-3">
+              <div className="flex flex-row ">
+                <div className="flex flex-row gap-2">
+                  <Skeleton width={320} height={180} />
+                  <Skeleton width={320} height={180} />
+                  <Skeleton width={320} height={180} />
+                  <Skeleton width={320} height={180} />
+                  <Skeleton width={320} height={180} />
+                  <Skeleton width={320} height={180} />
+                </div>
+              </div>
+            </div>
+          </SkeletonTheme>
+        ))}
+      </>
+    );
+  }
 
   if (isError) return <div className="text-white">An error has occurred</div>;
 
@@ -35,6 +62,8 @@ const VideoList = ({ title, url, src, level }: VideoListProps) => {
             <li key={idx} className="inline-block mx-3">
               <a
                 href={`https://www.youtube.com/watch?v=${i.snippet.resourceId.videoId}`}
+                rel="noreferrer"
+                target="_blank"
               >
                 <img alt="" src={i.snippet.thumbnails.medium.url} />
               </a>

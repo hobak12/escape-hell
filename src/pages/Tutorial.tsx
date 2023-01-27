@@ -6,9 +6,12 @@ import { useParams } from "react-router-dom";
 import tutorial from "../data/tutorialList.json";
 
 import Modal from "../components/modal/Modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Tutorial = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { level } = useParams();
   const { title, techStackIcon } = tutorial[parseInt(level!) - 1];
   const [modalOpen, setModalOpen] = useState(false);
