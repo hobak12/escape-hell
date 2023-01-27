@@ -5,7 +5,7 @@ import Header from "../components/Header/Header";
 import { useParams } from "react-router-dom";
 import tutorial from "../data/tutorialList.json";
 
-import Modal from "../components/Modal";
+import Modal from "../components/modal/Modal";
 import { useState } from "react";
 
 const Tutorial = () => {
