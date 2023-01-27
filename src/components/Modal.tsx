@@ -1,6 +1,4 @@
-import React from "react";
 import "./modal.css";
-import { ReactNode } from "react";
 
 const Modal = (props: ModalType) => {
   const { open, close, header, children } = props;

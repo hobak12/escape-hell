@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import tutorial from "../../data/tutorialList.json";
-import { tutorialType } from "./Header";
 
 type NaviBarProps = {
   dropDown: boolean;
