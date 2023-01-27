@@ -4,7 +4,6 @@ import CommentList from "../components/Comment/CommentList";
 import Header from "../components/Header/Header";
 import { useParams } from "react-router-dom";
 import tutorial from "../data/tutorialList.json";
-//
 import checkList from "../data/checkYourSelf.json";
 import { useState } from "react";
 import Modal from "../components/Modal";
@@ -24,6 +23,7 @@ const Tutorial = () => {
   const { level } = useParams();
   const { title, techStackIcon } = tutorial[parseInt(level!) - 1];
   const [modalOpen, setModalOpen] = useState(false);
+
   const openModal = () => {
     setModalOpen(true);
   };
@@ -97,9 +97,12 @@ const Tutorial = () => {
             ))}
           </div>
         </Modal>
-        <CommentInputs />
-        <div className="bg-header h-px" />
-        <CommentList />
+        <div className="bg-default flex-column text-white px-10 pt-2 pb-10">
+          <div className="bg-header h-px" />
+          <CommentInputs />
+          <div className="bg-header h-px" />
+          <CommentList />
+        </div>
       </div>
     </>
   );
