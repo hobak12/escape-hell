@@ -7,10 +7,10 @@ interface UpdateCommentProps {
   commentId: string;
 }
 
-interface CommentEditType {
-  id: string;
-  data: { name: string; content: string };
-}
+// interface CommentEditType {
+//   id: string;
+//   data: { name: string; content: string };
+// }
 
 const useUpdateComment = ({ queryKey, commentId }: UpdateCommentProps) => {
   const queryClient = useQueryClient();
@@ -35,7 +35,10 @@ const useUpdateComment = ({ queryKey, commentId }: UpdateCommentProps) => {
       queryClient.invalidateQueries({ queryKey });
     },
   };
-  return useMutation<undefined[] | null, AxiosError, any>(CommentApi.update, options);
+  return useMutation<undefined[] | null, AxiosError, any>(
+    CommentApi.update,
+    options
+  );
   // return useMutation<undefined[] | null, AxiosError, CommentEditType, CommentType[]>(CommentApi.update, options);
 };
 
